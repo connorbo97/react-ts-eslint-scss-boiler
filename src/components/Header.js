@@ -10,22 +10,24 @@ export const Header = () => {
 
   return (
     <div className={styles['container']}>
-      <Routes>
-        <Route
-          path={PAGE_CONFIGS[PAGES.FOO].route}
-          element={<div>this is the foo page</div>}
-        />
-        <Route
-          path="*"
-          element={
-            <input
-              className={styles['name']}
-              value={name}
-              onChange={(e) => onChangeName(e.target.value)}
-            />
-          }
-        />
-      </Routes>
+      <div className={styles['main']}>
+        <Routes>
+          <Route
+            path={PAGE_CONFIGS[PAGES.FOO].route}
+            element={<div>this is the foo page</div>}
+          />
+          <Route
+            path="*"
+            element={
+              <input
+                className={styles['name']}
+                value={name}
+                onChange={(e) => onChangeName(e.target.value)}
+              />
+            }
+          />
+        </Routes>
+      </div>
 
       <div className={styles['buttons']}>
         {PAGE_CONFIGS_ENTRIES.map(([page, { label, route }]) => (

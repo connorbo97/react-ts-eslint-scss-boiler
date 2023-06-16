@@ -1,15 +1,23 @@
 @import 'styles/_colors.scss';
 
+$height: 5rem;
+
 .container {
     display: flex;
     border-bottom: 1px solid $white;
+    height: $height;
+}
+
+.main {
+    flex: 1;
+    display: flex;
 }
 
 .name {
     border: 0;
     background-color: transparent;
     color: $tertiary;
-    padding: 1rem;
+    padding: 1.5rem;
     font-size: 2rem;
     flex: 1;
 }
