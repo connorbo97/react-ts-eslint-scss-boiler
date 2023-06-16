@@ -76,7 +76,10 @@
       "react-app",
       "react-app/jest",
       "prettier"
-    ]
+    ],
+    "env": {
+      "NODE_ENV": "development"
+    }
   },
   "browserslist": {
     "production": [
