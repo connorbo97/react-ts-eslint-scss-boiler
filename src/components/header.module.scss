@@ -1,1 +1,20 @@
 @import 'styles/_colors.scss';
+
+.container {
+    display: flex;
+    border-bottom: 1px solid $white;
+}
+
+.name {
+    border: 0;
+    background-color: transparent;
+    color: $tertiary;
+    padding: 1rem;
+    font-size: 2rem;
+    flex: 1;
+}
+
+.buttons {
+    display: flex;
+    row-gap: .5rem;
+}
