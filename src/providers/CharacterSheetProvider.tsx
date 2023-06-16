@@ -13,7 +13,7 @@ type CharacterSheetContextValue = {
   sheet: CharacterSheet;
   setSheet: any;
 };
-const initialSheet = { name: '' };
+const initialSheet = { name: 'Placeholder' };
 const initialState: CharacterSheetContextValue = {
   sheet: initialSheet,
   setSheet: noop,

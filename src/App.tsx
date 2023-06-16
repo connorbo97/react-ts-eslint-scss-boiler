@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.scss';
+import styles from './App.module.scss';
 import { Header } from './components/Header';
+import { Content } from 'components/Content';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles['app']}>
       <Header />
+      <Content />
     </div>
   );
 }

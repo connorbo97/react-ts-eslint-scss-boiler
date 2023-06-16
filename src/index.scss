@@ -16,3 +16,7 @@ body {
   background-color: $bg;
   color: $text;
 }
+
+#root {
+  min-height: 100vh;
+}
