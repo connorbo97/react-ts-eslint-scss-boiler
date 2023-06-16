@@ -1,6 +1,16 @@
+import { Skills } from './skills';
+import { Stats } from './stats';
+
 export type CharacterSheet = {
   name: string;
   stats: {
-    [s: string]: number;
+    [s in Stats]: number;
+  };
+  skills: {
+    [s in Skills]?: {
+      proficient?: boolean;
+      expertise?: boolean;
+      mod?: number;
+    };
   };
 };

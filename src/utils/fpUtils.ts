@@ -1,1 +1,1 @@
-export { set as fpSet } from 'lodash/fp';
+export { set as fpSet, update as fpUpdate } from 'lodash/fp';

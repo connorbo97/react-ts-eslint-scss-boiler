@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 import { noop } from 'lodash';
-import { iSet } from 'utils/lodashUtils';
+import { iSet, iUpdate } from 'utils/lodashUtils';
 
 type CharacterSheetContextValue = {
   sheet: CharacterSheet;
@@ -23,6 +23,7 @@ const initialSheet = {
     WIS: 10,
     CHA: 10,
   },
+  skills: {},
 };
 const initialState: CharacterSheetContextValue = {
   sheet: initialSheet,
@@ -46,7 +47,7 @@ export const CharacterSheetProvider = ({ ...rest }) => {
 
 export const useCharacterSheet = () => {
   const { sheet, setSheet } = useContext(CharacterSheetContext);
-  const { name, stats } = sheet;
+  const { name, stats, skills } = sheet;
 
   const onChangeName = useCallback(
     (val) => {
@@ -55,9 +56,31 @@ export const useCharacterSheet = () => {
     [setSheet, sheet],
   );
 
-  const onChangeStat = useCallback((val, stat) => {
-    setSheet(iSet(sheet, `stats.${stat}`, val));
-  }, []);
+  const onChangeStat = useCallback(
+    (val, stat) => {
+      setSheet(iSet(sheet, `stats.${stat}`, val));
+    },
+    [setSheet, sheet],
+  );
+
+  const onChangeSkill = useCallback(
+    (newVal, skill) => {
+      setSheet(iSet(sheet, `skills.${skill}`, newVal));
+    },
+    [setSheet, sheet],
+  );
+
+  const onToggleSkillProficiency = useCallback(
+    (skill) => {
+      setSheet(
+        iUpdate(sheet, `skills.${skill}`, (prev) => ({
+          ...prev,
+          proficient: !prev?.proficient,
+        })),
+      );
+    },
+    [setSheet, sheet],
+  );
 
   return {
     sheet,
@@ -68,5 +91,9 @@ export const useCharacterSheet = () => {
 
     stats,
     onChangeStat,
+
+    skills,
+    onChangeSkill,
+    onToggleSkillProficiency,
   };
 };
