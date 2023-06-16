@@ -1,6 +1,8 @@
 {
   "extends": ["react-app", "react-app/jest", "prettier"],
-  "env": {
-    "NODE_ENV": "development"
+  "parserOptions": {
+    "babelOptions": {
+      "presets": [["babel-preset-react-app", false]]
+    }
   }
 }
