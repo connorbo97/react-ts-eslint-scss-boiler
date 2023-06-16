@@ -1,6 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styles from './mainSheet.module.scss';
+import { Stats } from './components/Stats/Stats';
 
 export const MainSheet = () => {
-  return <div>Main Sheet</div>;
+  return (
+    <div className={styles['container']}>
+      <Stats />
+    </div>
+  );
 };
